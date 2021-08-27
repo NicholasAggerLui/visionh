@@ -1,23 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
+import {Alert, Button, IconButton} from 'rsuite'
+import {useState} from "react";
+import 'rsuite/dist/styles/rsuite-default.css';
+import MenuBar from "./components/NavBar/Navbar.js";
+import Footer from "./components/Footer/footer"
+import Container from "react-bootstrap/Container"
 
 function App() {
+
+  const[click, setClick] = useState(false)
+
+  function buttonOnclick(){
+    setClick(!click)
+    if(click == false){
+      Alert.info('true')
+    }else{
+      Alert.error('false')
+    }
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <MenuBar className={"App-header"}></MenuBar>
+      <Container className={"App-content"} fluid>
+      </Container>
+     <div>
+
+     </div>
+       <Footer className={"App-footer"}></Footer>
+
     </div>
   );
 }
